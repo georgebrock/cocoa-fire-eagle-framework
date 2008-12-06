@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Fire Eagle</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		body
+		{
+			color:#666;
+			font-family:helvetica, sans-serif;
+			text-align:center;
+		}
+		
+		h1
+		{
+			font-size:1.25em;
+			line-height:40px;
+			vertical-align:middle;
+			width:12em;
+			position:relative;
+			margin:25% auto 0 auto;
+			padding:0;
+		}
+		
+		p
+		{
+			width:200px;
+			margin:0 auto;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	
+		window.onload = function()
+		{
+			var regEx = /^\?message=(.*)$/;
+			var matches = regEx.exec(window.location.search);
+			
+			if(matches)
+				document.getElementById("message").innerHTML = unescape(matches[1]);
+		}
+	
+	</script>
+</head>
+
+<body>
+
+	<h1>Fire Eagle Error</h1>
+	<p id="message">An unknown error occurred</p>
+
+</body>
+
+</html>

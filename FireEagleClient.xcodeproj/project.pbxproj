@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C61489150E12BEE5000CDDCC /* FEClarificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61489140E12BEE5000CDDCC /* FEClarificationController.m */; };
+		C61489250E12C8B6000CDDCC /* FEAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61489240E12C8B6000CDDCC /* FEAuthController.m */; };
+		C614894D0E13114C000CDDCC /* loading.html in Resources */ = {isa = PBXBuildFile; fileRef = C614894C0E13114C000CDDCC /* loading.html */; };
+		C61489640E138846000CDDCC /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = C61489630E138846000CDDCC /* error.html */; };
+		C62ECCB60E0D5759005E5C5B /* FEHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62ECCB50E0D5759005E5C5B /* FEHTTPServer.m */; };
+		C62ECCD30E0D5F0B005E5C5B /* FEHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C62ECCD20E0D5F0B005E5C5B /* FEHTTPConnection.m */; };
+		C62ECDAE0E0D7CEC005E5C5B /* FEClarification.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62ECDAD0E0D7CEC005E5C5B /* FEClarification.xib */; };
+		C62ECEF30E0E6F87005E5C5B /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = C62ECEF20E0E6F87005E5C5B /* loading.gif */; };
+		C62ECF250E0EFB75005E5C5B /* unavailable.png in Resources */ = {isa = PBXBuildFile; fileRef = C62ECF240E0EFB75005E5C5B /* unavailable.png */; };
+		C632F1110DFAF7EB00614EF0 /* FELocationHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1100DFAF7EB00614EF0 /* FELocationHierarchy.m */; };
+		C632F1140DFAF8C300614EF0 /* FEXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1130DFAF8C300614EF0 /* FEXMLParser.m */; };
+		C632F1650DFB0B7C00614EF0 /* FELocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1640DFB0B7C00614EF0 /* FELocation.m */; };
+		C632F2150DFB2A7C00614EF0 /* TestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F2140DFB2A7C00614EF0 /* TestDelegate.m */; };
+		C64D04E00DF04EA60063C84E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64D04DF0DF04EA60063C84E /* WebKit.framework */; };
+		C64D04E70DF04EC70063C84E /* FEClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D04E60DF04EC70063C84E /* FEClient.m */; };
+		C64D04F90DF0553E0063C84E /* NSString+FEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D04F80DF0553E0063C84E /* NSString+FEAdditions.m */; };
+		C6557BE20E13F2AC0062156E /* FEGeoRect.m in Sources */ = {isa = PBXBuildFile; fileRef = C6557BE10E13F2AC0062156E /* FEGeoRect.m */; };
+		C66A459C0E15BFC1008D5EC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66A459B0E15BFC1008D5EC3 /* Security.framework */; };
+		C6B7C7970E1D84ED00DE271C /* FEGeoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B7C7960E1D84ED00DE271C /* FEGeoAPI.m */; };
+		C6B7C93D0E1D977100DE271C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C66A459B0E15BFC1008D5EC3 /* Security.framework */; };
+		C6B7C93E0E1D977100DE271C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64D04DF0DF04EA60063C84E /* WebKit.framework */; };
+		C6B7C9460E1D978300DE271C /* FEGeoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B7C7960E1D84ED00DE271C /* FEGeoAPI.m */; };
+		C6B7C9480E1D978300DE271C /* FEGeoRect.m in Sources */ = {isa = PBXBuildFile; fileRef = C6557BE10E13F2AC0062156E /* FEGeoRect.m */; };
+		C6B7C94B0E1D978300DE271C /* FELocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1640DFB0B7C00614EF0 /* FELocation.m */; };
+		C6B7C94D0E1D978300DE271C /* FEXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1130DFAF8C300614EF0 /* FEXMLParser.m */; };
+		C6B7C94F0E1D978300DE271C /* FELocationHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = C632F1100DFAF7EB00614EF0 /* FELocationHierarchy.m */; };
+		C6B7C9510E1D978300DE271C /* FEClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D04E60DF04EC70063C84E /* FEClient.m */; };
+		C6B7C9530E1D978300DE271C /* FEAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61489240E12C8B6000CDDCC /* FEAuthController.m */; };
+		C6B7C9550E1D978300DE271C /* FEClarificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61489140E12BEE5000CDDCC /* FEClarificationController.m */; };
+		C6B7C9570E1D978300DE271C /* FEHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C62ECCB50E0D5759005E5C5B /* FEHTTPServer.m */; };
+		C6B7C9590E1D978300DE271C /* FEHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C62ECCD20E0D5F0B005E5C5B /* FEHTTPConnection.m */; };
+		C6B7C95B0E1D978300DE271C /* NSData+FEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F2DDA20DF2CBBE004F58D8 /* NSData+FEAdditions.m */; };
+		C6B7C95D0E1D978300DE271C /* NSString+FEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D04F80DF0553E0063C84E /* NSString+FEAdditions.m */; };
+		C6B7C95E0E1D97AC00DE271C /* FEClarification.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62ECDAD0E0D7CEC005E5C5B /* FEClarification.xib */; };
+		C6B7C95F0E1D97B900DE271C /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = C61489630E138846000CDDCC /* error.html */; };
+		C6B7C9600E1D97B900DE271C /* loading.html in Resources */ = {isa = PBXBuildFile; fileRef = C614894C0E13114C000CDDCC /* loading.html */; };
+		C6B7C9610E1D97B900DE271C /* unavailable.png in Resources */ = {isa = PBXBuildFile; fileRef = C62ECF240E0EFB75005E5C5B /* unavailable.png */; };
+		C6B7C9620E1D97B900DE271C /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = C62ECEF20E0E6F87005E5C5B /* loading.gif */; };
+		C6B7C9630E1D97B900DE271C /* FEAuthorisation.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E129790E001A6A001A726C /* FEAuthorisation.xib */; };
+		C6B7C9640E1D97E400DE271C /* FEGeoAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = C6B7C7950E1D84ED00DE271C /* FEGeoAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C9650E1D97E400DE271C /* FEGeoRect.h in Headers */ = {isa = PBXBuildFile; fileRef = C6557BE00E13F2AC0062156E /* FEGeoRect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C9660E1D97E400DE271C /* FEConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C6B21A510E100F6E00CAE9DB /* FEConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C9670E1D97E400DE271C /* FELocation.h in Headers */ = {isa = PBXBuildFile; fileRef = C632F1630DFB0B7C00614EF0 /* FELocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C9690E1D97E400DE271C /* FELocationHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = C632F10F0DFAF7EB00614EF0 /* FELocationHierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C96A0E1D97E400DE271C /* FEClient.h in Headers */ = {isa = PBXBuildFile; fileRef = C64D04E50DF04EC70063C84E /* FEClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B7C9800E1D99AC00DE271C /* CocoaFireEagle.h in Headers */ = {isa = PBXBuildFile; fileRef = C6B7C97F0E1D99AC00DE271C /* CocoaFireEagle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6E1297A0E001A6A001A726C /* FEAuthorisation.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E129790E001A6A001A726C /* FEAuthorisation.xib */; };
+		C6F2DDA30DF2CBBE004F58D8 /* NSData+FEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F2DDA20DF2CBBE004F58D8 /* NSData+FEAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* FireEagleClient_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireEagleClient_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* FireEagleClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireEagleClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C61489130E12BEE5000CDDCC /* FEClarificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEClarificationController.h; sourceTree = "<group>"; };
+		C61489140E12BEE5000CDDCC /* FEClarificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEClarificationController.m; sourceTree = "<group>"; };
+		C61489230E12C8B6000CDDCC /* FEAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEAuthController.h; sourceTree = "<group>"; };
+		C61489240E12C8B6000CDDCC /* FEAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEAuthController.m; sourceTree = "<group>"; };
+		C614894C0E13114C000CDDCC /* loading.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = loading.html; sourceTree = "<group>"; };
+		C61489630E138846000CDDCC /* error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
+		C62ECCB40E0D5759005E5C5B /* FEHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEHTTPServer.h; sourceTree = "<group>"; };
+		C62ECCB50E0D5759005E5C5B /* FEHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEHTTPServer.m; sourceTree = "<group>"; };
+		C62ECCD10E0D5F0B005E5C5B /* FEHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEHTTPConnection.h; sourceTree = "<group>"; };
+		C62ECCD20E0D5F0B005E5C5B /* FEHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEHTTPConnection.m; sourceTree = "<group>"; };
+		C62ECDAD0E0D7CEC005E5C5B /* FEClarification.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEClarification.xib; sourceTree = "<group>"; };
+		C62ECEF20E0E6F87005E5C5B /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		C62ECF240E0EFB75005E5C5B /* unavailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unavailable.png; sourceTree = "<group>"; };
+		C632F10F0DFAF7EB00614EF0 /* FELocationHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELocationHierarchy.h; sourceTree = "<group>"; };
+		C632F1100DFAF7EB00614EF0 /* FELocationHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELocationHierarchy.m; sourceTree = "<group>"; };
+		C632F1120DFAF8C300614EF0 /* FEXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEXMLParser.h; sourceTree = "<group>"; };
+		C632F1130DFAF8C300614EF0 /* FEXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEXMLParser.m; sourceTree = "<group>"; };
+		C632F1630DFB0B7C00614EF0 /* FELocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELocation.h; sourceTree = "<group>"; };
+		C632F1640DFB0B7C00614EF0 /* FELocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELocation.m; sourceTree = "<group>"; };
+		C632F2130DFB2A7C00614EF0 /* TestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDelegate.h; sourceTree = "<group>"; };
+		C632F2140DFB2A7C00614EF0 /* TestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDelegate.m; sourceTree = "<group>"; };
+		C64D04DF0DF04EA60063C84E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		C64D04E50DF04EC70063C84E /* FEClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEClient.h; sourceTree = "<group>"; };
+		C64D04E60DF04EC70063C84E /* FEClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEClient.m; sourceTree = "<group>"; };
+		C64D04F70DF0553E0063C84E /* NSString+FEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FEAdditions.h"; sourceTree = "<group>"; };
+		C64D04F80DF0553E0063C84E /* NSString+FEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FEAdditions.m"; sourceTree = "<group>"; };
+		C6557BE00E13F2AC0062156E /* FEGeoRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEGeoRect.h; sourceTree = "<group>"; };
+		C6557BE10E13F2AC0062156E /* FEGeoRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEGeoRect.m; sourceTree = "<group>"; };
+		C66A459B0E15BFC1008D5EC3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		C6B21A510E100F6E00CAE9DB /* FEConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEConstants.h; sourceTree = "<group>"; };
+		C6B7C7950E1D84ED00DE271C /* FEGeoAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEGeoAPI.h; sourceTree = "<group>"; };
+		C6B7C7960E1D84ED00DE271C /* FEGeoAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEGeoAPI.m; sourceTree = "<group>"; };
+		C6B7C85D0E1D971100DE271C /* CocoaFireEagle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaFireEagle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6B7C85E0E1D971100DE271C /* CocoaFireEagle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaFireEagle-Info.plist"; sourceTree = "<group>"; };
+		C6B7C97F0E1D99AC00DE271C /* CocoaFireEagle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaFireEagle.h; sourceTree = "<group>"; };
+		C6E129790E001A6A001A726C /* FEAuthorisation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEAuthorisation.xib; sourceTree = "<group>"; };
+		C6F2DDA10DF2CBBE004F58D8 /* NSData+FEAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+FEAdditions.h"; sourceTree = "<group>"; };
+		C6F2DDA20DF2CBBE004F58D8 /* NSData+FEAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+FEAdditions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				C64D04E00DF04EA60063C84E /* WebKit.framework in Frameworks */,
+				C66A459C0E15BFC1008D5EC3 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6B7C85B0E1D971100DE271C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B7C93D0E1D977100DE271C /* Security.framework in Frameworks */,
+				C6B7C93E0E1D977100DE271C /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C6B7C97F0E1D99AC00DE271C /* CocoaFireEagle.h */,
+				C6B21A510E100F6E00CAE9DB /* FEConstants.h */,
+				C6B7C7950E1D84ED00DE271C /* FEGeoAPI.h */,
+				C6B7C7960E1D84ED00DE271C /* FEGeoAPI.m */,
+				C6557BE00E13F2AC0062156E /* FEGeoRect.h */,
+				C6557BE10E13F2AC0062156E /* FEGeoRect.m */,
+				C632F1630DFB0B7C00614EF0 /* FELocation.h */,
+				C632F1640DFB0B7C00614EF0 /* FELocation.m */,
+				C632F1120DFAF8C300614EF0 /* FEXMLParser.h */,
+				C632F1130DFAF8C300614EF0 /* FEXMLParser.m */,
+				C632F10F0DFAF7EB00614EF0 /* FELocationHierarchy.h */,
+				C632F1100DFAF7EB00614EF0 /* FELocationHierarchy.m */,
+				C64D04E50DF04EC70063C84E /* FEClient.h */,
+				C64D04E60DF04EC70063C84E /* FEClient.m */,
+				C61489230E12C8B6000CDDCC /* FEAuthController.h */,
+				C61489240E12C8B6000CDDCC /* FEAuthController.m */,
+				C61489130E12BEE5000CDDCC /* FEClarificationController.h */,
+				C61489140E12BEE5000CDDCC /* FEClarificationController.m */,
+				C62ECCB40E0D5759005E5C5B /* FEHTTPServer.h */,
+				C62ECCB50E0D5759005E5C5B /* FEHTTPServer.m */,
+				C62ECCD10E0D5F0B005E5C5B /* FEHTTPConnection.h */,
+				C62ECCD20E0D5F0B005E5C5B /* FEHTTPConnection.m */,
+				C6F2DDA10DF2CBBE004F58D8 /* NSData+FEAdditions.h */,
+				C6F2DDA20DF2CBBE004F58D8 /* NSData+FEAdditions.m */,
+				C64D04F70DF0553E0063C84E /* NSString+FEAdditions.h */,
+				C64D04F80DF0553E0063C84E /* NSString+FEAdditions.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* FireEagleClient.app */,
+				C6B7C85D0E1D971100DE271C /* CocoaFireEagle.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* FireEagleClient */ = {
+			isa = PBXGroup;
+			children = (
+				C6B7C9820E1D99C000DE271C /* Test classes */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				C6B7C85E0E1D971100DE271C /* CocoaFireEagle-Info.plist */,
+			);
+			name = FireEagleClient;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* FireEagleClient_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C61489630E138846000CDDCC /* error.html */,
+				C614894C0E13114C000CDDCC /* loading.html */,
+				C62ECF240E0EFB75005E5C5B /* unavailable.png */,
+				C62ECEF20E0E6F87005E5C5B /* loading.gif */,
+				C62ECDAD0E0D7CEC005E5C5B /* FEClarification.xib */,
+				C6E129790E001A6A001A726C /* FEAuthorisation.xib */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C66A459B0E15BFC1008D5EC3 /* Security.framework */,
+				C64D04DF0DF04EA60063C84E /* WebKit.framework */,
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6B7C9820E1D99C000DE271C /* Test classes */ = {
+			isa = PBXGroup;
+			children = (
+				C632F2130DFB2A7C00614EF0 /* TestDelegate.h */,
+				C632F2140DFB2A7C00614EF0 /* TestDelegate.m */,
+			);
+			name = "Test classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C6B7C8580E1D971100DE271C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B7C9640E1D97E400DE271C /* FEGeoAPI.h in Headers */,
+				C6B7C9650E1D97E400DE271C /* FEGeoRect.h in Headers */,
+				C6B7C9660E1D97E400DE271C /* FEConstants.h in Headers */,
+				C6B7C9670E1D97E400DE271C /* FELocation.h in Headers */,
+				C6B7C9690E1D97E400DE271C /* FELocationHierarchy.h in Headers */,
+				C6B7C96A0E1D97E400DE271C /* FEClient.h in Headers */,
+				C6B7C9800E1D99AC00DE271C /* CocoaFireEagle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* FireEagleClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FireEagleClient" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FireEagleClient;
+			productInstallPath = "$(HOME)/Applications";
+			productName = FireEagleClient;
+			productReference = 8D1107320486CEB800E47090 /* FireEagleClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6B7C85C0E1D971100DE271C /* CocoaFireEagle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6B7C8610E1D971200DE271C /* Build configuration list for PBXNativeTarget "CocoaFireEagle" */;
+			buildPhases = (
+				C6B7C8580E1D971100DE271C /* Headers */,
+				C6B7C8590E1D971100DE271C /* Resources */,
+				C6B7C85A0E1D971100DE271C /* Sources */,
+				C6B7C85B0E1D971100DE271C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CocoaFireEagle;
+			productName = CocoaFireEagle;
+			productReference = C6B7C85D0E1D971100DE271C /* CocoaFireEagle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FireEagleClient" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* FireEagleClient */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* FireEagleClient */,
+				C6B7C85C0E1D971100DE271C /* CocoaFireEagle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				C6E1297A0E001A6A001A726C /* FEAuthorisation.xib in Resources */,
+				C62ECDAE0E0D7CEC005E5C5B /* FEClarification.xib in Resources */,
+				C62ECEF30E0E6F87005E5C5B /* loading.gif in Resources */,
+				C62ECF250E0EFB75005E5C5B /* unavailable.png in Resources */,
+				C614894D0E13114C000CDDCC /* loading.html in Resources */,
+				C61489640E138846000CDDCC /* error.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6B7C8590E1D971100DE271C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B7C95F0E1D97B900DE271C /* error.html in Resources */,
+				C6B7C9600E1D97B900DE271C /* loading.html in Resources */,
+				C6B7C9610E1D97B900DE271C /* unavailable.png in Resources */,
+				C6B7C9620E1D97B900DE271C /* loading.gif in Resources */,
+				C6B7C9630E1D97B900DE271C /* FEAuthorisation.xib in Resources */,
+				C6B7C95E0E1D97AC00DE271C /* FEClarification.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				C64D04E70DF04EC70063C84E /* FEClient.m in Sources */,
+				C64D04F90DF0553E0063C84E /* NSString+FEAdditions.m in Sources */,
+				C6F2DDA30DF2CBBE004F58D8 /* NSData+FEAdditions.m in Sources */,
+				C632F1110DFAF7EB00614EF0 /* FELocationHierarchy.m in Sources */,
+				C632F1140DFAF8C300614EF0 /* FEXMLParser.m in Sources */,
+				C632F1650DFB0B7C00614EF0 /* FELocation.m in Sources */,
+				C632F2150DFB2A7C00614EF0 /* TestDelegate.m in Sources */,
+				C62ECCB60E0D5759005E5C5B /* FEHTTPServer.m in Sources */,
+				C62ECCD30E0D5F0B005E5C5B /* FEHTTPConnection.m in Sources */,
+				C61489150E12BEE5000CDDCC /* FEClarificationController.m in Sources */,
+				C61489250E12C8B6000CDDCC /* FEAuthController.m in Sources */,
+				C6557BE20E13F2AC0062156E /* FEGeoRect.m in Sources */,
+				C6B7C7970E1D84ED00DE271C /* FEGeoAPI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6B7C85A0E1D971100DE271C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B7C9460E1D978300DE271C /* FEGeoAPI.m in Sources */,
+				C6B7C9480E1D978300DE271C /* FEGeoRect.m in Sources */,
+				C6B7C94B0E1D978300DE271C /* FELocation.m in Sources */,
+				C6B7C94D0E1D978300DE271C /* FEXMLParser.m in Sources */,
+				C6B7C94F0E1D978300DE271C /* FELocationHierarchy.m in Sources */,
+				C6B7C9510E1D978300DE271C /* FEClient.m in Sources */,
+				C6B7C9530E1D978300DE271C /* FEAuthController.m in Sources */,
+				C6B7C9550E1D978300DE271C /* FEClarificationController.m in Sources */,
+				C6B7C9570E1D978300DE271C /* FEHTTPServer.m in Sources */,
+				C6B7C9590E1D978300DE271C /* FEHTTPConnection.m in Sources */,
+				C6B7C95B0E1D978300DE271C /* NSData+FEAdditions.m in Sources */,
+				C6B7C95D0E1D978300DE271C /* NSString+FEAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FireEagleClient_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "-lcrypto";
+				PRODUCT_NAME = FireEagleClient;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FireEagleClient_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "-lcrypto";
+				PRODUCT_NAME = FireEagleClient;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+		C6B7C85F0E1D971200DE271C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CocoaFireEagle-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-lcrypto",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CocoaFireEagle;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C6B7C8600E1D971200DE271C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CocoaFireEagle-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-lcrypto",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CocoaFireEagle;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FireEagleClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FireEagleClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6B7C8610E1D971200DE271C /* Build configuration list for PBXNativeTarget "CocoaFireEagle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6B7C85F0E1D971200DE271C /* Debug */,
+				C6B7C8600E1D971200DE271C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Cocoa Fire Eagle Framework</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<!-- <link rel="stylesheet" type="text/css" href="*** CSS URL ***" /> -->
+	
+	<style type="text/css">
+	
+	body
+	{
+		font-family:verdana, sans-serif;
+		font-size:small;
+	}
+	
+	pre {border-left:10px solid #ccc;padding:10px;background:#f7f7f7;}
+	.comment {color:#007800;}
+	.str {color:#e60000;}
+	.todo {color:red;}
+	.class, var {color:#276f76; font-style:normal;}
+	.keyword, .bool {color:#6a1ba2}
+	.method {color:#13484c}
+	.comp {color:#6f3719}
+	
+	</style>
+</head>
+
+<body>
+
+	<h1>Cocoa Fire Eagle Framework</h1>
+	
+	<h2>Contents</h2>
+	<ol>
+		<li><a href="#intro">Introduction</a></li>
+		<li>
+			<a href="#basic">Basic functionality</a>
+			<ol>
+				<li><a href="#basic-add">Adding Fire Eagle support to your application</a></li>
+				<li><a href="#basic-get">Getting user location</a></li>
+				<li><a href="#basic-set">Setting user location</a></li>
+			</ol>
+		</li>
+		<li><a href="#api-feclient"><abbr title="Application Programming Interface">API</abbr> reference</a></li>
+	</ol>
+
+	<div id="intro">
+		<h2>Introduction</h2>
+		<p><a href="http://fireeagle.yahoo.net">Fire Eagle</a> is a location information service provided by <a href="http://www.yahoo.com">Yahoo!</a>. It stores a user's location and allows the user to give different applications permission to update and/or retrieve their location.  This Cocoa Framework gives easy access to Fire Eagle from within your Cocoa app.</p>
+	</div>
+	
+	<div id="basic">
+		<h2>Basic functionality</h2>
+		
+		<div id="basic-add">
+			<h3>Adding Fire Eagle to your application</h3>
+			<p>Just follow the following 10 steps.  If you have experience with other third party Frameworks (things like Sparkle and Growl), this process should be very familiar and relatively straight forward.</p>
+			<ol>
+				<li>Create your application on the Fire Eagle website <a href="https://fireeagle.yahoo.net/developer/create">Fire Eagle website</a>. When selecting the authentication type you should select <em>&ldquo;Auth for desktop applications&rdquo;</em>.</li>
+				<li>Create a Yahoo! application ID on the <a href="http://developer.yahoo.com/wsregapp/"><abbr title="Yahoo!">Y!</abbr> Developer Network</a>. The Framework will use this application ID to access the Yahoo! Geo and Maps APIs to provide additional location information and map images.</li>
+				<li>
+					Add the CocoaFireEagle framework to your Xcode project
+					<ol>
+						<li>Copy the CocoaFireEagle.framework folder to your application's folder</li>
+						<li>In Xcode, right click on your project's &ldquo;linked Frameworks&rdquo; group and select &ldquo;Add, Existing Frameworks...&rdquo;</li>
+						<li>Add the CocoaFireEagle.framework file to your project</li>
+					</ol>
+				</li>
+				<li>
+					Add a new &ldquo;Copy Files Phase&rdquo; to your application target and add the CocoaFireEagle Framework to it
+					<ol>
+						<li>Expand your projects &ldquo;Targets&rdquo; groups</li>
+						<li>Right click on your application and select &ldquo;Add, New Build Phase, New Copy Files Build Phase&rdquo;</li>
+						<li>Expand the application, the list of phases should now end with a phase called &ldquo;Copy Files&rdquo;</li>
+						<li>Drag &ldquo;CocoaFireEagle.framework&rdquo; from the &ldquo;linked Frameworks&rdquo; group into the &ldquo;Copy Files&rdquo; phase</li>
+					</ol>
+				</li>
+				<li>
+					Include the CocoaFireEagle header file in your app delegate's header file by adding the following code:
+					<pre><code><span class="comp">#import</span> <span class="str">&lt;CocoaFireEagle/CocoaFireEagle.h&gt;</span></code></pre>
+				</li>
+				<li>
+					Add an interface builder outlet to your app delegate that will connect to your Fire Eagle client instance
+					<pre><code>@interface YourAppDelegateClass : NSObject {
+	
+		<span class="comment">// Your other variables here...</span>
+		
+		<strong>IBOutlet FEClient *<var>fireEagle</var>;</strong> <span class="comment">// Add this line</span>
+	}
+	
+	<span class="comment">// Your methods here...</span>
+	
+	@end</code></pre>
+				</li>
+				<li>
+					In Interface Builder, load the FEClient header file
+					<ol>
+						<li class="todo">TODO: Give detailed instructions here</li>
+					</ol>
+				</li>
+				<li>
+					Create a new object instance and set the class to FEClient
+					<ol>
+						<li class="todo">TODO: Give detailed instructions here</li>
+					</ol>
+				</li>
+				<li>Hook up the fireEagle outlet we created in step 6 to the FEClient instance we created in step 8</li>
+				<li>
+					Add some simple initialisation code to your app delegate:
+					<pre><code>- (<span class="keyword">void</span>)applicationDidFinishLaunching:(<span class="keyword">NSNotification</span> *)<var>aNotification</var>
+	{
+		<span class="comment">// Your other initialisation code here...</span>
+	
+		<span class="comment">// Set the Yahoo! Maps API key so we can access map images</span>
+		[<span class="class">FEGeoAPI</span> <span class="method">setAPIKey</span>:<span class="str">@"...Your Yahoo! Maps API key here..."</span>];
+	
+		<span class="comment">// Automatically save access tokens</span>
+		<var>fireEagle</var>.<var>useKeychain</var> = <span class="bool">TRUE</span>;
+		
+		<span class="comment">// Set the application name for friendlier error messages</span>
+		<var>fireEagle</var>.<var>applicationName</var> = <span class="str">@"...Your App's Name Here..."</span>;
+		
+		<span class="comment">// Tell the Fire Eagle which application this is</span>
+		[<var>fireEagle</var> 
+			<span class="method">setConsumerKey</span>:<span class="str">@"...Your App's Fire Eagle key..."</span>
+			<span class="method">secret</span>:<span class="str">@"...Your App's Fire Eagle secret..."</span>];
+		
+		<span class="comment">// Get the user's permission to access their Fire Eagle data
+		// Because we are using the OS X Keychain to store access tokens 
+		// the user will only have to go through this process once</span>
+		if(![<var>fireEagle</var> <span class="method">isAuthorised</span>])
+			[<var>fireEagle</var> <span class="method">authenticate</span>];
+	}</code></pre>
+				</li>
+			</ol>
+		</div>
+			
+		<div id="basic-get">
+			<h3>Getting user location</h3>
+			<p>
+				There are two ways to get the user's location. You can either request the location 
+				and let the Framework talk to Fire Eagle in the background and then send the result
+				to a delegate method, or alternatively you can make the request directly and wait
+				for the result to be returned.
+			</p>
+			<pre><code><span class="comment">// Asynchronous call</span>
+<span class="comment">// Result will be sent to a delegate method</span>
+[<var>fireEagle</var> <span class="method">requestUserLocation</span>];
+
+<span class="comment">// Synchronous call</span>
+<span class="comment">// This thread will stop and wait for a result</span>
+FELocationHierarchy *<var>userLocation</var> = [<var>fireEagle</var> <span class="method">userLocation</span>];
+			</code></pre>
+		</div>
+	
+		<div id="basic-set">
+			<h3>Setting user location</h3>
+			<p>
+				The simplest way to do this is to pass an address to the Framework which will then
+				ask for clarification from Fire Eagle.  If the address is ambiguous (for example
+				there are many towns and cities called "London") the Framework will prompt the user
+				to clarify. If there is only one interpretation, the location will be set 
+				immediately.
+			</p>
+			<pre><code>[<var>fireEagle</var> <span class="method">clarifyAndSetUserLocation</span>:<span class="str">@"London"</span>];</code></pre>
+			<p>
+				If clarification isn't required (i.e. you're using unamiguous data, such as GPS
+				co-ordinates) you can directly set the location using the following methods:
+			</p>
+			<pre><code>NSDictionary *<var>locationDictionary</var> = [NSDictionary dictionaryWithObjectsAndKeys:...];
+	<span class="comment">// For a full list of possible location dictionary keys see: <a href="#api-feclient-constants-location">Location dictionary keys</a></span>
+
+<span class="comment">// Asynchronous update</span>
+<span class="comment">// Result will be sent to a delegate method</span>
+[<var>fireEagle</var> <span class="method">requestUserLocationChange</span>:<var>locationDictionary</var>];
+
+<span class="comment">// Synchronous update</span>
+<span class="comment">// This thread will stop and wait for a result</span>
+BOOL <var>result</var> = [<var>fireEagle</var> <span class="method">setUserLocation</span>:<var>locationDictionary</var>];</code></pre>
+		</div>
+	</div>
+	
+	<div id="api-feclient">
+		<h2><abbr title="Application Programming Interface">API</abbr> reference</h2>
+		
+		<div id="api-feclient-properties">
+			<h3>Properties</h3>
+			<dl>
+				<dt id="api-feclient-property-usekeychain"><code>BOOL <var>useKeychain</var></code></dt>
+				<dd>Toggles automatic Keychain usage. If this is set to <code>TRUE</code> the user's Fire Eagle access token will be automatically stored in the OS Keychain, so the user will not need to authenticate again until the key expires.</dd>
+				
+				<dt id="api-feclient-property-applicationname"><code>NSString *<var>applicationName</var></code></dt>
+				<dd>A user friendly name for your application.  This will occasionally be displayed in messages (errors etc.) that are shown to the user. The default value is &quot;this application&quot;.</dd>
+			</dl>
+		</div>
+		
+		<div id="api-feclient-methods">
+			<h3>Methods</h3>
+			<h4>Authentication and general management</h4>
+			<ul>
+				<li id="api-feclient-method-setConsumerKeysecret">
+					<h5><code>- (void)setConsumerKey:(NSString*)<var>newKey</var> secret:(NSString*)<var>newSecret</var></code></h5>
+					<p>To use the Fire Eagle API you must register your application on the <a href="http://fireeagle.yahoo.net">Fire Eagle website</a>.  When you do so Fire Eagle will assign you a consumer key and a consumer secret.  You must use this method to set your key and secret before using any of the FEClient's other functionality.</p>
+					<dl>
+						<dt><code><var>newKey</var></code></dt>
+						<dd>The Fire Eagle consumer key for your application</dd>
+						<dt><code><var>newSecret</var></code></dt>
+						<dd>The Fire Eagle consumer secret for your application</dd>
+					</dl>
+				</li>
+				<li id="api-feclient-method-setAccessTokensecret">
+					<h5><code>- (void)setAccessToken:(NSString*)<var>newToken</var> secret:(NSString*)<var>newSecret</var></code></h5>
+					<p>If you choose to manage user access tokens yourself, use this method to set the access token.  If you're using the <a href="#api-feclient-property-usekeychain">automatic Keychain storage</a> you should never need to use this method.</p>
+					<dl>
+						<dt><code><var>newToken</var></code></dt>
+						<dd>The user's access token</dd>
+						<dt><code><var>newSecret</var></code></dt>
+						<dd>The user's access token secret</dd>
+					</dl>
+				</li>
+				<li id="api-feclient-method-setDelegate">
+					<h5><code>- (void)setDelegate:(id)<var>newDelegate</var></code></h5>
+					<p>Sets the delegate. The delegate should be an object that responds to one or more of the <a href="#api-feclient-delegate">delegate methods</a> which are used to provide feedback to your application.</p>
+				</li>
+				<li id="api-feclient-method-authenticate">
+					<h5><code>- (void)authenticate</code></h5>
+					<p>Starts the Fire Eagle user authentication and application authorisation process.  When this process is completed the <a href="#api-feclient-delegate-fireEagleClientWasAuthorised"><code>fireEagleClientWasAuthorised:</code></a> delegate method will be called and, assuming the user has logged in and given the application access to their Fire Eagle data, we will have a valid Fire Eagle access token.</p>
+				</li>
+				<li id="api-feclient-method-isAuthorised">
+					<h5><code>- (BOOL)isAuthorised</code></h5>
+					<p>Indicates whether or not we have a valid Fire Eagle access token.</p>
+				</li>
+				<li id="api-feclient-method-isWorking">
+					<h5><code>- (BOOL)isWorking</code></h5>
+					<p>Indicates that one of the asynchronous Fire Eagle methods is currently working in another thread.  Can be used with Bindings to easily disable controls or display some kind of &ldquo;busy&rdquo; indicator when a Fire Eagle API call is in progress.</p>
+				</li>
+			</ul>
+			
+			<h4>Getting the user's location</h4>
+			<ul>
+				<li id="api-feclient-method-requestUserLocation">
+					<h5><code>- (void)requestUserLocation</code></h5>
+					<p>Sends an asynchronous request for the user's location to Fire Eagle. When the location request is complete the location is sent to the <a href="#api-feclient-delegate-fireEagleClientrecievedUserLocation"><code>fireEagleClient:recievedUserLocation:</code></a> delegate method.</p>
+					<p>See also: <a href="#api-feclient-method-userLocation"><code>userLocation</code></a></p>
+				</li>
+				<li id="api-feclient-method-userLocation">
+					<h5><code>- (FELocationHierarchy*)userLocation</code></h5>
+					<p>Synchronous method to get the user's location.  This method will block while it is waiting for Fire Eagle to respond with the user's location, it is therefore recommended that you either use the provided asynchronous mechanism (<a href="#api-feclient-method-requestUserLocation"><code>requestUserLocation</code></a> and the <a href="#api-feclient-delegate-fireEagleClientrecievedUserLocation"><code>fireEagleClient:recievedUserLocation:</code></a> delegate method) or call this method from an NSThread that is not your main thread.  Calling from the main thread will cause the GUI to stop responding and your application will &ldquo;beach ball&rdquo; while the lookup is in progress.</p>
+				</li>
+			</ul>
+			
+			<h4>Setting the user's location</h4>
+			<ul>
+				<li id="api-feclient-method-requestUserLocationChange">
+					<h5><code>- (void)requestUserLocationChange:(NSDictionary*)<var>location</var></code></h5>
+					<p>Asynchronous method to request a user location change.  When the location change is complete the <a href="#api-feclient-delegate-fireEagleClientUpdatedUserLocation"><code>fireEagleClientUpdatedUserLocation:</code></a> delegate method is called.</p>
+					<dl>
+						<dt><code><var>location</var></code></dt>
+						<dd>The user's new location as an instance of <code class="class">NSDictionary</code>. The dictionary dictionary should use the <a href="#api-feclient-constants-location">location dictionary key constants</a>.</dd>
+					</dl>
+				</li>
+				<li id="api-feclient-method-requestUserLocationChangeToAddress">
+					<h5><code>- (void)requestUserLocationChangeToAddress:(NSString*)<var>address</var></code></h5>
+					<p>Equivalent to calling <a href="#api-feclient-method-requestUserLocationChange"><code>requestUserLocationChange:</code></a>
+					with the argument <code>[NSDictionary dictionaryWithObject:<var>address</var> forKey:<a href="#api-feclient-constants-location">FELocationAddressKey</a>]</code>
+				</li>
+				<li id="api-feclient-method-setUserLocationToAddress">
+					<h5><code>- (BOOL)setUserLocationToAddress:(NSString*)<var>newAddress</var></code></h5>
+				</li>
+				<li id="api-feclient-method-setUserLocation">
+					<h5><code>- (BOOL)setUserLocation:(NSDictionary*)<var>newLocation</var></code></h5>
+				</li>
+				<li id="api-feclient-method-clarifyAndSetUserLocation">
+					<h5><code>- (void)clarifyAndSetUserLocation:(NSString*)<var>newLocation</var></code></h5>
+				</li>
+			</ul>
+			
+			<h4>Looking up locations</h4>
+			<ul>
+				<li id="api-feclient-method-requestLocationLookupFromAddress">
+					<h5><code>- (void)requestLocationLookupFromAddress:(NSString*)<var>address</var></code></h5>
+					<p>Sends an asynchronous request for a list of possible locations that could match the <code><var>address</var></code>. When the lookup request is complete the location list is sent to the <a href="#api-feclient-delegate-fireEagleClientrecievedLocationList"><code>fireEagleClient:recievedLocationList:</code></a> delegate method.</p>
+					<p>See also: <a href="#api-feclient-method-requestLocationLookup"><code>requestLocationLookup:</code></a>, <a href="#api-feclient-method-locationLookupFromAddress"><code>locationLookupFromaddress:</code></a>, <a href="#api-feclient-method-locationLookup"><code>locationLookup:</code></a></p>
+				</li>
+				<li id="api-feclient-method-requestLocationLookup">
+					<h5><code>- (void)requestLocationLookup:(NSDictionary*)location</code></h5>
+					<p>Sends an asynchronous request for a list of possible location that could match the given <code><var>location</var></code> dictionary. When the lookup request is complete the location list is sent to the <a href="#api-feclient-delegate-fireEagleClientrecievedLocationList"><code>fireEagleClient:recievedLocationList:</code></a> delegate method.</p>
+					<p>See also: <a href="#api-feclient-method-requestLocationLookupFromAddress"><code>requestLocationLookupFromAddress:</code></a>, <a href="#api-feclient-method-locationLookupFromAddress"><code>locationLookupFromaddress:</code></a>, <a href="#api-feclient-method-locationLookup"><code>locationLookup:</code></a></p>
+				</li>
+				<li id="api-feclient-method-locationLookupFromAddress">- (NSDictionary*)locationLookupFromAddress:(NSString*)address</li>
+				<li id="api-feclient-method-locationLookup">- (NSDictionary*)locationLookup:(NSDictionary*)location</li>
+			</ul>
+		</div>
+		
+		<div id="api-feclient-delegate-methods">
+			<h3>Delegate methods</h3>
+			
+			<ul>
+				<li id="api-feclient-delegate-fireEagleClientWasAuthorised">
+					<h4><code>- (void)fireEagleClientWasAuthorised:(FEClient*)<var>client</var></code></h4>
+					<p>Called by the FEClient when Fire Eagle authorisation is complete.  If you are managing Fire Eagle access tokens yourself (i.e. not using <a href="#api-feclient-property-usekeychain">automatic Keychain storage</a>) you should use this delegate method to retrieve the access token from the FEClient instance and store it somewhere safe.</p>
+				</li>
+				<li id="api-feclient-delegate-fireEagleClientrecievedUserLocation">
+					<h4><code>- (void)fireEagleClient:(FEClient*)<var>client</var> recievedUserLocation:(FELocationHierarchy*)<var>locationHierarchy</var></code></h4>
+					<p>Called by the FEClient when a user location lookup initiated by calling <a href="#api-feclient-method-requestUserLocationLookupFromAddress"><code>requestUserLocationLookupFromAddress:</code></a> or <a href="#api-feclient-method-requestUserLocationLookup"><code>requestUserLocationLookup:</code></a> is complete.</p>
+				</li>
+				<li id="api-feclient-delegate-fireEagleClientrecievedLocationList">
+					<h4><code>- (void)fireEagleClient:(FEClient*)<var>client</var> recievedLocationList:(NSDictionary*)<var>locationData</var></code></h4>
+					<p>Called by the FEClient when a location lookup initiated by calling <a href="#api-feclient-method-locationLookupFromAddress"><code>locationLookupFromAddress:</code></a> or <a href="#api-feclient-method-locationLookup"><code>locationLookup:</code></a> is complete.</p>
+				</li>
+				<li id="api-feclient-delegate-fireEagleClientUpdatedUserLocation"><h4><code>- (void)fireEagleClientUpdatedUserLocation:(FEClient*)<var>client</var></code></h4></li>
+				<li id="api-feclient-delegate-fireEagleClientexperiencedError"><h4><code>- (void)fireEagleClient:(FEClient*)<var>client</var> experiencedError:(NSError*)<var>error</var></code></h4></li>
+			</ul>
+		</div>
+		
+		<div id="api-feclient-constants">
+			<h3>Constants</h3>
+			
+			<div id="api-feclient-constants-location">
+				<h4>Location dictionary keys</h4>
+				<dl>
+					<dt><code>FELocationLongitudeKey</code></dt>
+					<dd>...</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
